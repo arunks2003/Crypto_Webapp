@@ -1,0 +1,82 @@
+/* this is the :horizontal container for the navbar */
+.header {
+    width: 100%;
+    height: 90px;
+    background: #fff;
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid #333;
+}
+
+/* this code makes the navbar :horizontal */
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 1rem;
+}
+
+.color {
+    color: var(--primary)
+}
+
+.nav-menu {
+    display: flex;
+}
+
+.nav-menu li {
+    padding: 0 1rem;
+}
+
+.nav-menu a {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1240px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: absolute;
+        flex-direction: column;
+        /*this makes the list items in veritcal when hamburget is clicked*/
+        justify-content: start;
+        top: 90px;
+        /*this makes the list items open from 90px from top*/
+        right: -100%;
+        /*this hides the list item and we use state to show it up in belwo styling*/
+        width: 50%;
+        height: 100%;
+        transition: 0.4s;
+        z-index: 2;
+        background: #fff;
+        border-left: 1px solid #eee;
+    }
+
+    .nav-menu.active {
+        right: 0;
+        /*this will show up the list item when clicked on hamburger icon using state change*/
+    }
+
+    .nav-menu li {
+        padding: 1rem;
+        width: 100%;
+        border-bottom: 1px solid #eee;
+        background-color: #eee;
+    }
+
+    .nav-menu {
+        font-size: 1.2rem
+    }
+}
